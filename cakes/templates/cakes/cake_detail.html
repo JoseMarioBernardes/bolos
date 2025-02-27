@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Detalhes do Bolo - Vovó Lili{% endblock %}
+{% block content %}
+    <h1>Detalhes do Bolo</h1>
+    <p><strong>Nome:</strong> {{ cake.nome }}</p>
+    <p><strong>Preço:</strong> {{ cake.preco }}</p>
+    <a class="btn" href="{% url 'cake_update' cake.pk %}">Editar</a>
+    <a class="btn" href="{% url 'cake_delete' cake.pk %}">Excluir</a>
+    <a class="btn" href="{% url 'cake_list' %}">Voltar para a lista</a>
+{% endblock %}

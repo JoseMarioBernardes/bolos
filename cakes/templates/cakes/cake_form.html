@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{% if object %}Editar Bolo - Vovó Lili{% else %}Novo Bolo - Vovó Lili{% endif %}{% endblock %}
+{% block content %}
+    <h1>{% if object %}Editar Bolo{% else %}Novo Bolo{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Salvar</button>
+        <a class="btn" href="{% url 'cake_list' %}">Cancelar</a>
+    </form>
+{% endblock %}

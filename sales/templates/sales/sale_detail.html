@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Detalhes da Venda - Vovó Lili{% endblock %}
+{% block content %}
+    <h1>Detalhes da Venda</h1>
+    <p><strong>ID:</strong> {{ sale.id }}</p>
+    <p><strong>Data:</strong> {{ sale.data }}</p>
+    <p><strong>Bolo:</strong> {{ sale.cake.nome }}</p>
+    <p><strong>Cliente:</strong> {{ sale.customer.nome }}</p>
+    <p><strong>Taxa de Entrega:</strong> {{ sale.taxa_entrega }}</p>
+    <p><strong>Pago:</strong> {% if sale.pago %}Sim{% else %}Não{% endif %}</p>
+    <a class="btn" href="{% url 'sale_update' sale.pk %}">Editar</a>
+    <a class="btn" href="{% url 'sale_delete' sale.pk %}">Excluir</a>
+    <a class="btn" href="{% url 'sale_list' %}">Voltar para a lista</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Excluir Bolo - Vovó Lili{% endblock %}
+{% block content %}
+    <h1>Excluir Bolo</h1>
+    <p>Tem certeza que deseja excluir o bolo {{ cake.nome }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn">Confirmar</button>
+        <a class="btn" href="{% url 'cake_list' %}">Cancelar</a>
+    </form>
+{% endblock %}

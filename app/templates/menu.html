@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Menu - Vovó Lili{% endblock %}
+{% block content %}
+    <h1>Bem-vindo ao Sistema Vovó Lili</h1>
+    <p>Escolha uma das opções abaixo para começar:</p>
+    <ul>
+        <li><a class="btn" href="{% url 'customer_list' %}">Clientes</a></li>
+        <li><a class="btn" href="{% url 'cake_list' %}">Bolos</a></li>
+        <li><a class="btn" href="{% url 'sale_list' %}">Vendas</a></li>
+    </ul>
+{% endblock %}

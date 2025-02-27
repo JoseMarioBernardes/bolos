@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Excluir Venda - Vovó Lili{% endblock %}
+{% block content %}
+    <h1>Excluir Venda</h1>
+    <p>Tem certeza que deseja excluir a venda do bolo {{ sale.cake.nome }} para {{ sale.customer.nome }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn">Confirmar</button>
+        <a class="btn" href="{% url 'sale_list' %}">Cancelar</a>
+    </form>
+{% endblock %}

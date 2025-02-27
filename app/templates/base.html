@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Vovó Lili - Sistema de Bolos{% endblock %}</title>
+    <style>
+        /* Estilos principais utilizando as cores definidas */
+        body {
+            background-color: #F8EBD8; /* Bege/creme */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #4F2C2C; /* Marrom escuro */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: #ED5378; /* Rosa/pink */
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+            margin-bottom: 60px; /* Para evitar que o conteúdo fique atrás do footer */
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #4F2C2C;
+            color: #ED5378;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        h1, h2, h3 {
+            color: #4F2C2C;
+        }
+        .btn {
+            background-color: #ED5378;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        /* Estilos para formulários */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #4F2C2C;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Estilos para tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #ED5378;
+            color: #fff;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'home' %}"><strong>Vovó Lili</strong></a>
+            </div>
+            <div class="menu">
+                <a href="{% url 'customer_list' %}">Clientes</a>
+                <a href="{% url 'cake_list' %}">Bolos</a>
+                <a href="{% url 'sale_list' %}">Vendas</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}
+        <!-- Conteúdo da página -->
+        {% endblock %}
+    </div>
+    <footer>
+        &copy; 2025 Vovó Lili - Todos os direitos reservados.
+    </footer>
+</body>
+</html>

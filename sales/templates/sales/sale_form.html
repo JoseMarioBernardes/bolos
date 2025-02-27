@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{% if object %}Editar Venda - Vovó Lili{% else %}Nova Venda - Vovó Lili{% endif %}{% endblock %}
+{% block content %}
+    <h1>{% if object %}Editar Venda{% else %}Nova Venda{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Salvar</button>
+        <a class="btn" href="{% url 'sale_list' %}">Cancelar</a>
+    </form>
+{% endblock %}
