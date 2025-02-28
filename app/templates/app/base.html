@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>{% block title %}Vovó Lili - Sistema de Bolos{% endblock %}</title>
     <style>
-        /* Estilos principais utilizando as cores definidas */
         body {
             background-color: #F8EBD8; /* Bege/creme */
             font-family: Arial, sans-serif;
@@ -14,22 +13,32 @@
         .navbar {
             background-color: #4F2C2C; /* Marrom escuro */
             padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; 
+            align-items: center; 
+            /* Removido justify-content: space-between; para que fiquem lado a lado */
         }
-        .navbar a {
+        .logo a {
             color: #ED5378; /* Rosa/pink */
             text-decoration: none;
-            font-size: 16px;
-            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 20px; /* Espaço entre o nome do sistema e o menu */
         }
-        .navbar a:hover {
+        .menu {
+            display: flex; 
+            gap: 15px; /* Espaçamento horizontal entre os itens de menu */
+        }
+        .menu a {
+            color: #ED5378;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .menu a:hover {
             text-decoration: underline;
         }
         .container {
             padding: 20px;
-            margin-bottom: 60px; /* Para evitar que o conteúdo fique atrás do footer */
+            margin-bottom: 60px;
         }
         header {
             margin-bottom: 20px;
@@ -60,7 +69,6 @@
         .btn:hover {
             opacity: 0.9;
         }
-        /* Estilos para formulários */
         .form-group {
             margin-bottom: 15px;
         }
@@ -76,7 +84,6 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        /* Estilos para tabelas */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -98,7 +105,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="{% url 'home' %}"><strong>Vovó Lili</strong></a>
+                <a href="{% url 'home' %}">Vovó Lili</a>
             </div>
             <div class="menu">
                 <a href="{% url 'customer_list' %}">Clientes</a>
@@ -108,9 +115,7 @@
         </nav>
     </header>
     <div class="container">
-        {% block content %}
-        <!-- Conteúdo da página -->
-        {% endblock %}
+        {% block content %}{% endblock %}
     </div>
     <footer>
         &copy; 2025 Vovó Lili - Todos os direitos reservados.

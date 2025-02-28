@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+{% block title %}Detalhes do Cliente - Vovó Lili{% endblock %}
+
+{% block content %}
+  <h1>Detalhes do Cliente</h1>
+  <p><strong>Nome:</strong> {{ customer.nome }}</p>
+  <p><strong>Telefone:</strong> {{ customer.telefone }}</p>
+  <p><strong>Endereço:</strong> {{ customer.rua }}, {{ customer.numero }} - {{ customer.bairro }}</p>
+  {% if customer.complemento %}
+    <p><strong>Complemento:</strong> {{ customer.complemento }}</p>
+  {% endif %}
+  <p><strong>CEP:</strong> {{ customer.cep }}</p>
+  <p><strong>Cidade:</strong> {{ customer.cidade }}</p>
+  <p><strong>Estado:</strong> {{ customer.estado }}</p>
+  
+  <a class="btn" href="{% url 'customer_update' customer.pk %}">Editar</a>
+  <a class="btn" href="{% url 'customer_delete' customer.pk %}">Excluir</a>
+  <a class="btn" href="{% url 'customer_list' %}">Voltar para a Lista</a>
+{% endblock %}
