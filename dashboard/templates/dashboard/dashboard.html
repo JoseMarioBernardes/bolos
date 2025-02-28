@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% block title %}Dashboard - Vovó Lili{% endblock %}
+{% block content %}
+    <h1>Dashboard: Total de Vendas por Mês</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Mês</th>
+                <th>Total de Vendas (R$)</th>
+                <th>Quantidade de Vendas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in sales_by_month %}
+            <tr>
+                <td>{{ item.month|date:"F Y" }}</td>
+                <td>{{ item.total|floatformat:2 }}</td>
+                <td>{{ item.count }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhuma venda registrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
